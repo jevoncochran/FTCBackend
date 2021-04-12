@@ -16,13 +16,13 @@ exports.up = function (knex) {
 
     tbl.string("route", 30);
 
-    tbl.string("description1");
+    tbl.string("description1", 500);
 
-    tbl.string("description1_es");
+    tbl.string("description1_es", 500);
 
-    tbl.string("description2");
+    tbl.string("description2", 500);
 
-    tbl.string("description2_es");
+    tbl.string("description2_es", 500);
 
     tbl.string("stripe_price_id");
   });
