@@ -1,5 +1,11 @@
 // Update with your config settings.
 
+const pg = require("pg");
+
+if (process.env.DATABASE_URL) {
+  pg.defaults.ssl = { rejectUnauthorized: false };
+}
+
 module.exports = {
   development: {
     client: "sqlite3",
@@ -39,7 +45,7 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      database: process.env.DATABASE_URL,
+      database: `${process.env.DATABASE_URL}?sslmode=require`,
       ssl: { rejectUnauthorized: false },
     },
     pool: {
