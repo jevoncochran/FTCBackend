@@ -2,7 +2,7 @@
 
 const pg = require("pg");
 
-if (process.env.DATABASE_URL) {
+if (process.env.HEROKU_POSTGRESQL_BROWN_URL) {
   pg.defaults.ssl = { rejectUnauthorized: false };
 }
 
@@ -44,7 +44,7 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: process.env.DATABASE_URL,
+    connection: process.env.HEROKU_POSTGRESQL_BROWN_URL,
     pool: {
       min: 2,
       max: 10,
