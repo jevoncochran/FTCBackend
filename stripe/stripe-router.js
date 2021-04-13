@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY_LIVE);
 
 router.post("/customer", async (req, res) => {
   let { name, email, stripeId, paymentMethodId, shipping } = req.body;
