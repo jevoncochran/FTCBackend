@@ -13,7 +13,7 @@ const subscriptionRouter = require("../subscriptions/subscription-router");
 const server = express();
 
 require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY_LIVE);
 
 server.use(cors());
 server.use(express.json());
