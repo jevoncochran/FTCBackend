@@ -30,40 +30,6 @@ router.post("/customer", async (req, res) => {
   });
 });
 
-router.post("/intent", async (req, res) => {
-  let { stripeCustomerId, paymentMethodId } = req.body;
-  stripe.setupIntents.create(
-    {
-      payment_method_types: ["card"],
-      customer: stripeCustomerId,
-      payment_method: paymentMethodId,
-    },
-    (err, setupIntent) => {
-      if (!err) {
-        console.log(`client secret: ${setupIntent.client_secret}`);
-        stripe.setupIntents.confirm(
-          setupIntent.id,
-          {
-            payment_method: paymentMethodId,
-          },
-          (err, confirmedIntent) => {
-            if (!err) {
-              console.log(`setup intent confirmed: ${confirmedIntent}`);
-              res.status(201).json(confirmedIntent);
-            } else {
-              console.log("Error", err);
-              res.status(500).json({ err });
-            }
-          }
-        );
-      } else {
-        console.log("Error", err);
-        res.status(500).json({ err });
-      }
-    }
-  );
-});
-
 router.post("/subscription", (req, res) => {
   let { stripeCustomerId, stripePriceId } = req.body;
   stripe.subscriptions.create(
