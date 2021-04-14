@@ -46,7 +46,7 @@ server.use("/api/products", productRouter);
 server.use("/api/customers", customerRouter);
 server.use("/api/orders", orderRouter);
 server.use("/api/pay", paymentRouter);
-server.use("/api/stripe", stripeRouter);
+server.use("/api/stripe", cors(), stripeRouter);
 server.use("/api/accounts", accountRouter);
 server.use("/api/subscriptions", subscriptionRouter);
 
