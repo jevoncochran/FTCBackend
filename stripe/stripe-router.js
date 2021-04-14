@@ -64,29 +64,6 @@ router.post("/intent", async (req, res) => {
   );
 });
 
-// router.post("/payment", (req, res) => {
-//   let { stripeCustomerId, paymentMethodId, amount } = req.body;
-
-//   stripe.paymentIntents.create(
-//     {
-//       amount,
-//       currency: "USD",
-//       customer: stripeCustomerId,
-//       confirm: true,
-//       payment_method: paymentMethodId,
-//       description: "Farms to Communities Produce Basket",
-//     },
-//     (err, payment) => {
-//       if (!err) {
-//         res.status(201).json(payment);
-//       } else {
-//         console.log(err);
-//         res.status(500).json({ err });
-//       }
-//     }
-//   );
-// });
-
 router.post("/subscription", (req, res) => {
   let { stripeCustomerId, stripePriceId } = req.body;
   stripe.subscriptions.create(
