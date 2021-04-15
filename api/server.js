@@ -12,16 +12,7 @@ const subscriptionRouter = require("../subscriptions/subscription-router");
 
 const server = express();
 
-server.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
-  );
-  next();
-});
+server.use(cors());
 server.use(express.json());
 
 server.get("/", (req, res) => {
@@ -33,7 +24,7 @@ server.use("/api/products", productRouter);
 server.use("/api/customers", customerRouter);
 server.use("/api/orders", orderRouter);
 server.use("/api/pay", paymentRouter);
-server.use("/api/stripe", cors(), stripeRouter);
+server.use("/api/stripe", stripeRouter);
 server.use("/api/accounts", accountRouter);
 server.use("/api/subscriptions", subscriptionRouter);
 
