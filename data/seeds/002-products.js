@@ -21,7 +21,7 @@ exports.seed = function (knex) {
         "Deliveries weigh between 12-15 pounds and may include: Avocados, bananas, berries, lettuce, tomatoes, potatoes, onions, peppers, sweet potatoes, greens, cilantro, corn, melons, squash and an assortment of other fresh food from local farms.",
       description2_es:
         "Las entregas pesan entre 12 y 15 libras y pueden incluir: aguacates, plátanos, bayas, lechuga, tomates, papas, cebollas, pimientos, camotes, verduras, cilantro, maíz, melones, calabazas y una variedad de otros alimentos frescos de granjas locales.",
-      stripe_price_id: "price_1IgFHbLbsa7wJ0xu6tapf330",
+      stripe_price_id: "price_1IgNF2Lbsa7wJ0xuGiZR3jLJ",
     },
     {
       item: "Mutual Aid Box",
@@ -36,7 +36,7 @@ exports.seed = function (knex) {
         "Qualified families can receive a generous assortment of fresh fruits and vegetables from local organic and sustainable farms – delivered to your home. The standard price is $35. Enter the promo code that you were given via the email from OUSD – and sign up for weekly deliveries for just $10.",
       description1_es:
         "Las familias calificadas pueden recibir una generosa variedad de frutas y verduras frescas de granjas orgánicas y sostenibles locales, entregadas en su hogar. El precio estándar es de $ 35. Ingrese el código de promoción que recibió a través del correo electrónico de OUSD y regístrese para recibir entregas semanales por solo $ 10.",
-      stripe_price_id: "price_1IgFINLbsa7wJ0xu82nINQq2",
+      stripe_price_id: "price_1IgNBvLbsa7wJ0xuVJMcSR8n",
     },
     // {
     //   item: "Donation",
