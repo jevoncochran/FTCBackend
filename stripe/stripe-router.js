@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 require("dotenv").config();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY_LIVE);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_LIVE);
 
 router.post("/customer", async (req, res) => {
   let { name, email, stripeId, paymentMethodId, shipping } = req.body;
@@ -47,6 +47,19 @@ router.post("/subscription", (req, res) => {
       }
     }
   );
+});
+
+router.delete("/subscription", (req, res) => {
+  let { subscriptionId } = req.body;
+
+  stripe.subscriptions.del(subscriptionId, (err, deleted) => {
+    if (!err) {
+      res.status(200).json(deleted);
+    } else {
+      console.log(err);
+      res.status(500).json({ err, errMsg: "Failed to cancel subscription!" });
+    }
+  });
 });
 
 router.post("/donate", async (req, res) => {
