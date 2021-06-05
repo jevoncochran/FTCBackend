@@ -63,6 +63,7 @@ router.post("/login/customer", (req, res) => {
               name: `${customer.first_name} ${customer.last_name}`,
               email: customer.email,
               role: "customer",
+              subscriptionId: customer.subscription_id,
             },
             token,
           });
